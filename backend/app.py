@@ -11,8 +11,8 @@ from flask_cors import CORS
 from models import db, User, Project, Task
 
 app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+os.makedirs("instance", exist_ok=True)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/database.db'
 app.config['JWT_SECRET_KEY'] = 'secretkey'
 
 db.init_app(app)
